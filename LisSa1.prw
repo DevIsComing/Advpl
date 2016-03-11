@@ -1,66 +1,66 @@
 #include "protheus.ch"
 #include "rwmake.ch"
-/*/
+/*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ LISSA1     ¦ Autor ¦ Renan R. Ramos      ¦ Data ¦ 11.03.16 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Lista os clientes de acordo com a escolha do usuário.      ¦¦¦
-¦¦¦          ¦ Existe a opção em selecionar clientes do tipo Jurídico ou  ¦¦¦
-¦¦¦          ¦ Físico. Exemplo simples de atualização de MsNewGetDados.   ¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-/*/
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ LISSA1     Â¦ Autor Â¦ Renan R. Ramos      Â¦ Data Â¦ 11.03.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Lista os clientes de acordo com a escolha do usuÃ¡rio.      Â¦Â¦Â¦
+Â¦Â¦Â¦          Â¦ Existe a opÃ§Ã£o em selecionar clientes do tipo JurÃ­dico ou  Â¦Â¦Â¦
+Â¦Â¦Â¦          Â¦ FÃ­sico. Exemplo simples de atualizaÃ§Ã£o de MsNewGetDados.   Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+*/
 user function lisSa1
                                
 private oDlgPrincipal
 private aHeader := {}                                                  
-//array com as opções que estarão disponíveis no comboBox
-private aItens := {"T=Todos clientes","J=Juridica","F=Física"}
+//array com as opÃ§Ãµes que estarÃ£o disponÃ­veis no comboBox
+private aItens := {"T=Todos clientes","J=Juridica","F=FÃ­sica"}
 private aClientes := {}
 private oGetDados      
 private cCombo := "T"
 private cPosicao := "T"
 
-	//aHeader possui a configuração das colunas do getDados, como: tamanho, nome, tipo, tabela, etc
-	aadd(aHeader,{"Cód. Cliente","A1_COD"   ,"@!"  , 3,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})	
-	aadd(aHeader,{"Nome Cliente","A1_NOME"  ,"@!"  ,15,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})
-	aadd(aHeader,{"CPF/CNPJ"    ,"A1_CGC"   ,"@!"  ,10,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})	
-	aadd(aHeader,{"Endereço"    ,"A1_END"   ,"@!"  ,15,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})	
-	aadd(aHeader,{"Bairro"      ,"A1_BAIRRO","@!"  ,10,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})
-	aadd(aHeader,{"Cidade"      ,"A1_MUN"   ,"@!"  ,15,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})
-	aadd(aHeader,{"Estado"      ,"A1_EST"   ,"@!"  , 5,0,,"€€€€€€€€€€€€€€ ","C","SA1","R"})	     
+	//aHeader possui a configuraÃ§Ã£o das colunas do getDados, como: tamanho, nome, tipo, tabela, etc
+	aadd(aHeader,{"CÃ³d. Cliente","A1_COD"   ,"@!"  , 3,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})	
+	aadd(aHeader,{"Nome Cliente","A1_NOME"  ,"@!"  ,15,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})
+	aadd(aHeader,{"CPF/CNPJ"    ,"A1_CGC"   ,"@!"  ,10,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})	
+	aadd(aHeader,{"EndereÃ§o"    ,"A1_END"   ,"@!"  ,15,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})	
+	aadd(aHeader,{"Bairro"      ,"A1_BAIRRO","@!"  ,10,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})
+	aadd(aHeader,{"Cidade"      ,"A1_MUN"   ,"@!"  ,15,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})
+	aadd(aHeader,{"Estado"      ,"A1_EST"   ,"@!"  , 5,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","SA1","R"})	     
 
-	//aqui inicia a configuraçao da tela principal entitulada "Lista Clientes"
+	//aqui inicia a configuraÃ§ao da tela principal entitulada "Lista Clientes"
 	define msDialog oDlgPrincipal title "Lista Clientes" from 250,180 to 600,900 pixel
 		
 		//label "Cliente" posicionado antes do comboBox	
 		@012,007 say "Cliente:" size 030,010 pixel of oDlgPrincipal
-		//objeto oCombo da classe tComboBox (lembra de pré carregar o array com as opções que serão apresentadas ao usuário. Neste caso usamos o array aItens.
+		//objeto oCombo da classe tComboBox (lembra de prÃ© carregar o array com as opÃ§Ãµes que serÃ£o apresentadas ao usuÃ¡rio. Neste caso usamos o array aItens.
 		oCombo := tComboBox():new(010,037,{|u| if(pcount() > 0, cPosicao := u, cCombo)}, aItens,080,010,oDlgPrincipal,,{|| .T.},,,,.T.,,,,{|| .T.},,,,,cCombo)
 	    //'setando' os atributos do objeto oGetDados com o nome da tela principal(oDlgPrincipal), aHeader e a lista de clientes (aClientes)
 		oGetDados := MsNewGetDados():New(030,007,150,350, , , , , , ,9999, , , , oDlgPrincipal, aHeader, aClientes)			
-		//botão Pesquisar. Ao clicar executará o método atTabela()	
+		//botÃ£o Pesquisar. Ao clicar executarÃ¡ o mÃ©todo atTabela()	
 		@152,250 button "Pesquisar" size 040,010 pixel of oDlgPrincipal action (atTabela())
 		@152,300 button "Sair"      size 040,010 pixel of oDlgPrincipal action (oDlgPrincipal:end())
 		//inicializa a listagem de clientes e envia para o oGetDados
 		atTabela()
-	//apresenta a tela ao usuário	
+	//apresenta a tela ao usuÃ¡rio	
 	activate msDialog oDlgPrincipal centered
 
 return               
 /*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ atTabela      ¦ Autor ¦ Renan Ramos       ¦ Data ¦ 11.03.16¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Atualiza a tabela com listagem de clientes.                ¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ atTabela      Â¦ Autor Â¦ Renan Ramos       Â¦ Data Â¦ 11.03.16Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Atualiza a tabela com listagem de clientes.                Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 */
 static function atTabela()
 //alimenta o array aClientes com a listagem de clientes          
@@ -69,48 +69,48 @@ aClientes := selClientes()
 oGetDados:oBrowse:Refresh()     
 //atualiza/recarrega a tela                                                                                                                                
 oDlgPrincipal:Refresh()    
-//aqui oGetDados é novamente redefinido e agora está com a tabela mais atualizada
+//aqui oGetDados Ã© novamente redefinido e agora estÃ¡ com a tabela mais atualizada
 oGetDados := MsNewGetDados():New(030,007,150,350, , , , , , ,9999, , , , oDlgPrincipal, aHeader, aClientes)
 
 return
 /*    
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ selClientes   ¦ Autor ¦ Renan Ramos       ¦ Data ¦ 11.03.16¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Seleciona os clientes no banco de dados de acordo com o    ¦¦¦
-¦¦¦			 ¦ filtro de pesquisa feita pelo usuário.               	  ¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ selClientes   Â¦ Autor Â¦ Renan Ramos       Â¦ Data Â¦ 11.03.16Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Seleciona os clientes no banco de dados de acordo com o    Â¦Â¦Â¦
+Â¦Â¦Â¦			 Â¦ filtro de pesquisa feita pelo usuÃ¡rio.               	  Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 */
 static function selClientes()
-//este array terá o conteúdo que será apresentado ao usuário
+//este array terÃ¡ o conteÃºdo que serÃ¡ apresentado ao usuÃ¡rio
 private aDados := {}
 
 //abre a tabela SA1 (Clientes)
 dbSelectArea("SA1")           
-//configura primeiro índice (Filial + Código Cliente)
+//configura primeiro Ã­ndice (Filial + CÃ³digo Cliente)
 SA1->(dbSetOrder(1))                                    
 //posiciona no primeiro registro
 SA1->(dbGoTop())
 
-//enquanto houver cliente na tabela ou enquanto não chega ao final da tabela executa as condições abaixo
+//enquanto houver cliente na tabela ou enquanto nÃ£o chega ao final da tabela executa as condiÃ§Ãµes abaixo
 while !eof()                                                                                            
 	//se listar todos os clientes
    	if alltrim(cPosicao) = "T"
 		aadd(aDados,{allTrim(SA1->A1_COD), allTrim(SA1->A1_NOME), allTrim(SA1->A1_CGC), allTrim(SA1->A1_END),;
 				     allTrim(SA1->A1_BAIRRO), allTrim(SA1->A1_MUN), allTrim(SA1->A1_EST), .F.})
-    //caso seja realizado filtro por pessoa Física ou Jurídica
+    //caso seja realizado filtro por pessoa FÃ­sica ou JurÃ­dica
 	elseif allTrim(SA1->A1_PESSOA) = allTrim(cPosicao)		
 		//adiciona os dados ao array aDados.
-		//Lembrar de adicionar os dados de acordo com a sequencia definida no array aHeader para não haver troca de posição de conteúdo com cabeçalho
-		//ou erros devido a diferença de tipos. Lembrar de definir o último elemento (tipo boolean).		  				                        
+		//Lembrar de adicionar os dados de acordo com a sequencia definida no array aHeader para nÃ£o haver troca de posiÃ§Ã£o de conteÃºdo com cabeÃ§alho
+		//ou erros devido a diferenÃ§a de tipos. Lembrar de definir o Ãºltimo elemento (tipo boolean).		  				                        
 		aadd(aDados,{allTrim(SA1->A1_COD), allTrim(SA1->A1_NOME), allTrim(SA1->A1_CGC), allTrim(SA1->A1_END),;
 				     allTrim(SA1->A1_BAIRRO), allTrim(SA1->A1_MUN), allTrim(SA1->A1_EST), .F.})	
 	endIf	                                                                                        
-	//avança o registro da tabela
+	//avanÃ§a o registro da tabela
     SA1->(dbSkip())
 endDo   
 //retorna a tabela atualizada
