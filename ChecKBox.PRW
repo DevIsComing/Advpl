@@ -1,16 +1,16 @@
 #include "protheus.ch"
 #include "rwmake.ch"
-/*/
+/*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ CHECBOX    ¦ Autor ¦ Renan R. Ramos      ¦ Data ¦ 11.03.16 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Exemplo de utilização do elemento checkBox em um getDados. ¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-/*/
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ CHECBOX    Â¦ Autor Â¦ Renan R. Ramos      Â¦ Data Â¦ 11.03.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Exemplo de utilizaÃ§Ã£o do elemento checkBox em um getDados. Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+*/
 user function exCheck
                                
 private oDlgTela
@@ -23,60 +23,60 @@ private lChkFiltro := .F.
 private oGetDados      
 static oChk, oChkFiltro
 
-//array de cabeçalho do GetDados
-//Neste caso serão 4 colunas incluindo o campo que possui caixa de seleção ou checkBox
+//array de cabeÃ§alho do GetDados
+//Neste caso serÃ£o 4 colunas incluindo o campo que possui caixa de seleÃ§Ã£o ou checkBox
 	aadd(aHeader,{''		  ,'CHECKBOL'     ,'@BMP', 2,0,,	             ,"C",     ,"V",,,'seleciona','V','S'})
-	aadd(aHeader,{"Código"    ,"CC2_CODMUN"   ,"@!"  , 3,0,,"€€€€€€€€€€€€€€ ","C","CC2","R"})	
-	aadd(aHeader,{"Município" ,"CC2_MUN"      ,"@!"  ,30,0,,"€€€€€€€€€€€€€€ ","C","CC2","R"})
-	aadd(aHeader,{"Estado"    ,"CC2_EST"      ,"@!"  , 4,0,,"€€€€€€€€€€€€€€ ","C","CC2","R"})	
+	aadd(aHeader,{"CÃ³digo"    ,"CC2_CODMUN"   ,"@!"  , 3,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","CC2","R"})	
+	aadd(aHeader,{"MunicÃ­pio" ,"CC2_MUN"      ,"@!"  ,30,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","CC2","R"})
+	aadd(aHeader,{"Estado"    ,"CC2_EST"      ,"@!"  , 4,0,,"â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬â‚¬Â ","C","CC2","R"})	
                                                    
-	//Nosso programa irá listar todos os municípios e fazer filtros por Estado
-	@003,003 to 530,1150 dialog oDlgTela title "Lista de Municípios"
+	//Nosso programa irÃ¡ listar todos os municÃ­pios e fazer filtros por Estado
+	@003,003 to 530,1150 dialog oDlgTela title "Lista de MunicÃ­pios"
 
-	//Aqui onde o usuário informará o estado que buscará as cidades pertencentes
+	//Aqui onde o usuÃ¡rio informarÃ¡ o estado que buscarÃ¡ as cidades pertencentes
 	@011,006 say "Estado: " pixel of oDlgTela                                   
-	//este elemento get é a caixa de testo que possui a consulta padrão (opção F3).
+	//este elemento get Ã© a caixa de testo que possui a consulta padrÃ£o (opÃ§Ã£o F3).
 	//esta consulta CC2EST foi configurada no Configurador somente para este uso
 	@011,020 get cEstado size 30,11 F3 "CC2EST"
 	                                                                            
-	//botão pesquisar que, quando acionado, efetua a busca dos municípios de acordo com o Estado inserido pelo usuário
-	//a variável cEstado armazena o conteúdo existente no elemento "get" acima
+	//botÃ£o pesquisar que, quando acionado, efetua a busca dos municÃ­pios de acordo com o Estado inserido pelo usuÃ¡rio
+	//a variÃ¡vel cEstado armazena o conteÃºdo existente no elemento "get" acima
 	@012,125 button "&Pesquisar" size 40,11 pixel of oDlgTela action buscaCc2(cEstado)
 
 	//o objeto oGetDados (MsNewGetDados) com os atributos configurados	
 	oGetDados := MsNewGetDados():New(025,006,230,570, GD_UPDATE, , , , {'CHECKBOL'}, 1, 99, , , , oDlgTela, aHeader, aColsCidades,,)
-	//quando clicado duas vezes sobre o aCols[oGetDados:nAt,1], ou seja, onde ficará a coluna com o checkbox, ele irá alternar de LBOK para LBNO e vice versa
+	//quando clicado duas vezes sobre o aCols[oGetDados:nAt,1], ou seja, onde ficarÃ¡ a coluna com o checkbox, ele irÃ¡ alternar de LBOK para LBNO e vice versa
 	oGetDados:oBrowse:bLDblClick := {|| oGetDados:EditCell(), oGetDados:aCols[oGetDados:nAt,1] := iif(oGetDados:aCols[oGetDados:nAt,1] == 'LBOK','LBNO','LBOK')}
 	
-	//objeto oChk de checkbox e variável lChkSel. Quando clicado, executa o método "seleciona" e possibilita 
-	//que o usuário selecione todas as cidades ao mesmo tempo. Facilita também no momento da escolha em casos de listas extensas
+	//objeto oChk de checkbox e variÃ¡vel lChkSel. Quando clicado, executa o mÃ©todo "seleciona" e possibilita 
+	//que o usuÃ¡rio selecione todas as cidades ao mesmo tempo. Facilita tambÃ©m no momento da escolha em casos de listas extensas
 	@240,006 checkbox oChk var lChkSel PROMPT "Selecionar todos" size 60,07 on CLICK seleciona(lChkSel)
 
-	//botao confirmar comum, ainda daremos utilidade à ele :)	
+	//botao confirmar comum, ainda daremos utilidade Ã  ele :)	
    	@240,125 button "&Confirmar" size 40,11 pixel of oDlgTela action close(oDlgTela)
-   	//botão padrão de Cancelar
+   	//botÃ£o padrÃ£o de Cancelar
     @240,190 button "&Cancelar"  size 40,11 pixel of oDlgTela action close(oDlgTela)	         
 	
-	//antes de ativar a tela (oDlgTela) e centralizá-la para o usuário, 
-	//o método "buscaCc2" pesquisa todas as cidades e estados para pré carregar o oGetDados
+	//antes de ativar a tela (oDlgTela) e centralizÃ¡-la para o usuÃ¡rio, 
+	//o mÃ©todo "buscaCc2" pesquisa todas as cidades e estados para prÃ© carregar o oGetDados
     buscaCc2(cEstado)                                                                                                                     
 	 
 	//ativa o oDlgTela
     activate dialog oDlgTela center  
     
 return                          
-/*/
+/*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ BUSCACC2   ¦ Autor ¦ Renan R. Ramos      ¦ Data ¦ 11.03.16 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Pesquisa as cidades de acordo com o estado escolhido. Caso ¦¦¦
-¦¦¦          ¦ cEstado esteja vazio, serão apresentadas todas as cidades e¦¦¦
-¦¦           ¦ estados presentes na tabela.                               ¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ BUSCACC2   Â¦ Autor Â¦ Renan R. Ramos      Â¦ Data Â¦ 11.03.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Pesquisa as cidades de acordo com o estado escolhido. Caso Â¦Â¦Â¦
+Â¦Â¦Â¦          Â¦ cEstado esteja vazio, serÃ£o apresentadas todas as cidades eÂ¦Â¦Â¦
+Â¦Â¦           Â¦ estados presentes na tabela.                               Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 /*/
 static function buscaCc2(cEstado)
 
@@ -86,38 +86,38 @@ refresh(aColsCidades)
 
 //abre a tabela CC2
 dbSelectArea("CC2")
-//'seta' primeiro índice (Filial+Estado+Município)
+//'seta' primeiro Ã­ndice (Filial+Estado+MunicÃ­pio)
 dbSetOrder(1)                                                      
 //posiciona no topo da tabela
 dbGoTop()                      
-//faz a busca pelo índice informado utilizando o conteúdo da variável cEstado
+//faz a busca pelo Ã­ndice informado utilizando o conteÃºdo da variÃ¡vel cEstado
 dbSeek(xFilial("CC2")+allTrim(cEstado))
-//enquanto não é final da tabela
+//enquanto nÃ£o Ã© final da tabela
 while CC2->(!eof())             
-	//se o conteúdo do campo CC2->CC2_EST igual ao conteúdo de cEstado                        
+	//se o conteÃºdo do campo CC2->CC2_EST igual ao conteÃºdo de cEstado                        
 	if allTrim(cEstado) = allTrim(CC2->CC2_EST)
 		aadd(aColsCidades,{'LBNO', allTrim(CC2->CC2_CODMUN), allTrim(CC2->CC2_MUN), allTrim(CC2->CC2_EST),.F.})
 	//se cEstado estiver vazio, adiciona todos 
 	elseif empty(allTrim(cEstado))
 		aadd(aColsCidades,{'LBNO', allTrim(CC2->CC2_CODMUN), allTrim(CC2->CC2_MUN), allTrim(CC2->CC2_EST),.F.})
 	endif                                      
-	//avança registro
+	//avanÃ§a registro
 	CC2->(dbSkip())
 endDo
 //atualiza o oGetDados com o novo array
 refresh(aColsCidades)
 
 return
-/*/
+*/
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ REFRESH  ¦ Autor ¦ Renan Rodrigues Ramos ¦ Data ¦ 13.10.15 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descrição ¦ Realiza limpeza dos dados na MsGetDados e inclui novo array¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ REFRESH  Â¦ Autor Â¦ Renan Rodrigues Ramos Â¦ Data Â¦ 13.10.15 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã£o Â¦ Realiza limpeza dos dados na MsGetDados e inclui novo arrayÂ¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 /*/
 static function refresh(aDados)
 
@@ -128,21 +128,21 @@ oGetDados := MsNewGetDados():New(025,006,230,570, GD_UPDATE, , , , {'CHECKBOL'},
 oGetDados:oBrowse:bLDblClick := {|| oGetDados:EditCell(), oGetDados:aCols[oGetDados:nAt,1] := iif(oGetDados:aCols[oGetDados:nAt,1] == 'LBOK','LBNO','LBOK')}
 
 return
-/*/
+/*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ seleciona¦ Autor ¦ Renan Rodrigues Ramos ¦ Data ¦ 08.10.15 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Seleciona todas as cidades apresentadas no aCols.          ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-/*/  
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ selecionaÂ¦ Autor Â¦ Renan Rodrigues Ramos Â¦ Data Â¦ 08.10.15 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Seleciona todas as cidades apresentadas no aCols.          Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+*/  
 static function seleciona(lChkSel)
 //percorre todas as linhas do oGetDados
 for i := 1 to len(oGetDados:aCols)
-	//verifica o valor da variável lChkSel
+	//verifica o valor da variÃ¡vel lChkSel
 	//se verdadeiro, define a primeira coluna do aCols como LBOK ou marcado (checked)
 	if lChkSel
 		oGetDados:aCOLS[i,1] := 'LBOK'                                               
@@ -152,23 +152,23 @@ for i := 1 to len(oGetDados:aCols)
 	endif	
 next     
 //executa refresh no getDados e na tela
-//esses métodos Refresh() são próprio da classe MsNewGetDados e do dialog
-//totalmente diferentes do método estático definido no corpo deste fonte
+//esses mÃ©todos Refresh() sÃ£o prÃ³prio da classe MsNewGetDados e do dialog
+//totalmente diferentes do mÃ©todo estÃ¡tico definido no corpo deste fonte
 oGetDados:oBrowse:Refresh() 
 oDlgTela:Refresh()
 
 return
-/*/
+/*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ selFiltro¦ Autor ¦ Renan Rodrigues Ramos ¦ Data ¦ 03.03.16 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Executa o filtro de cidades selecionadas.                  ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-/*/  
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ selFiltroÂ¦ Autor Â¦ Renan Rodrigues Ramos Â¦ Data Â¦ 03.03.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Executa o filtro de cidades selecionadas.                  Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+*/  
 static function selFiltro(lChkFiltro)
 
 buscaCc2(lChkFiltro)//atualiza o grid de dados
@@ -177,17 +177,17 @@ oGetDados:oBrowse:Refresh()
 oDlgTela:Refresh()
 
 return
-/*/
+/*
 _____________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ VERIFLIN ¦ Autor ¦ Renan Rodrigues Ramos ¦ Data ¦ 09.10.15 ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦Descrição ¦ Verifica se existem cidades selecionadas.                  ¦¦¦
-¦¦¦----------+------------------------------------------------------------¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-/*/
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ VERIFLIN Â¦ Autor Â¦ Renan Rodrigues Ramos Â¦ Data Â¦ 09.10.15 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã£o Â¦ Verifica se existem cidades selecionadas.                  Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+*/
 static function verifLin()
 
 local lRet := .F.
