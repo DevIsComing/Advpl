@@ -2,37 +2,35 @@
 #include "rwmake.ch"
 /*
 _________________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+---------------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ EXPEXCEL  ¦ Autor ¦ Renan Ramos              ¦ Data ¦ 21.01.16 ¦¦¦
-¦¦¦----------+----------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Programa que exporta clientes para planilha do excel.          ¦¦¦
-¦¦+---------------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+---------------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ EXPEXCEL  Â¦ Autor Â¦ Renan Ramos              Â¦ Data Â¦ 21.01.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+----------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Programa que exporta clientes para planilha do excel.          Â¦Â¦Â¦
+Â¦Â¦+---------------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 */
 user function expExcel
 
 private oReport
-private oDlg     
-private oGetDados  
 private aHeader := {}
 private aClientes := {}	
 
-//exibe um diálogo onde a execução de um processo pode ser monitorada através da régua de progressão.                               
+//exibe um diÃ¡logo onde a execuÃ§Ã£o de um processo pode ser monitorada atravÃ©s da rÃ©gua de progressÃ£o.                               
 Processa({|| oReport := ReportDef(), oReport:PrintDialog()},"Imprmindo dados...")
 
 return                                                    
 /*
 _________________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+---------------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ REPORTDEF ¦ Autor ¦ Renan Ramos              ¦ Data ¦ 25.01.16 ¦¦¦
-¦¦¦----------+----------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Monta a estrutura do relatório.                                ¦¦¦
-¦¦+---------------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+---------------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ REPORTDEF Â¦ Autor Â¦ Renan Ramos              Â¦ Data Â¦ 25.01.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+----------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Monta a estrutura do relatÃ³rio.                                Â¦Â¦Â¦
+Â¦Â¦+---------------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 */               
 static function reportDef
 
@@ -40,23 +38,23 @@ local oReport
 local oSection
 local oBreak
 
-//configura o relatório
+//configura o relatÃ³rio
 oReport := TReport():new("RELCLI","Lista de Clientes",,{|oReport| printReport(oReport)},"Lista de Clientes")
-oReport:SetLandscape() 	//tipo de impressão
-oReport:nFontBody := 10 //tamanho da fonte padrão
+oReport:SetLandscape() 	//tipo de impressÃ£o
+oReport:nFontBody := 10 //tamanho da fonte padrÃ£o
 oReport:setTotalInLine(.F.)
 oReport:showHeader()
-//cria uma seção   
+//cria uma seÃ§Ã£o   
 oSection := TRSection():new(oReport,"Lista de clientes",{"SA1"})//importante descrever as tabelas utilizadas
 oReport:setTotalInLine(.F.)
 
 TRCell():new(oSection, "CLIENTE",,"")
 oSection:cell("CLIENTE"):disable()
 
-//define as colunas com o campo da tabela, tabela e cabeçalho que estará na planilha
-TRCell():new(oSection, "A1_COD" , "SA1", "Cód. cliente")
+//define as colunas com o campo da tabela, tabela e cabeÃ§alho que estarÃ¡ na planilha
+TRCell():new(oSection, "A1_COD" , "SA1", "CÃ³d. cliente")
 TRCell():new(oSection, "A1_NOME", "SA1", "Nome cliente")
-TRCell():new(oSection, "A1_END" , "SA1", "Endereço")
+TRCell():new(oSection, "A1_END" , "SA1", "EndereÃ§o")
 TRCell():new(oSection, "A1_MUN" , "SA1", "Cidade")
 TRCell():new(oSection, "A1_EST" , "SA1", "Estado")
 TRCell():new(oSection, "A1_PAIS", "SA1", "Pais")
@@ -64,14 +62,14 @@ TRCell():new(oSection, "A1_PAIS", "SA1", "Pais")
 return oReport
 /*
 ___________________________________________________________________________________
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦+-----------------------------------------------------------------------------+¦¦
-¦¦¦Programa  ¦ PRINTREPORT ¦ Autor ¦ Renan Ramos              ¦ Data ¦ 25.01.16 ¦¦¦
-¦¦¦----------+------------------------------------------------------------------¦¦¦
-¦¦¦Descriçäo ¦ Realiza a impressão do relatório.                                ¦¦¦
-¦¦+-----------------------------------------------------------------------------+¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Programa  Â¦ PRINTREPORT Â¦ Autor Â¦ Renan Ramos              Â¦ Data Â¦ 25.01.16 Â¦Â¦Â¦
+Â¦Â¦Â¦----------+------------------------------------------------------------------Â¦Â¦Â¦
+Â¦Â¦Â¦DescriÃ§Ã¤o Â¦ Realiza a impressÃ£o do relatÃ³rio.                                Â¦Â¦Â¦
+Â¦Â¦+-----------------------------------------------------------------------------+Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 */
 static function printReport()
     
@@ -86,16 +84,16 @@ cSql += " FROM "+RetSqlName("SA1")+"  SA1 "
 cSql += " WHERE SA1.D_E_L_E_T_ = '' "   
 cSql += " ORDER BY A1_COD "
     
-//salva o código sql na pasta TEMP para consultas no seu SGBD
+//salva o cÃ³digo sql na pasta TEMP para consultas no seu SGBD
 memoWrite("\TEMP\RELSA1.sql",cSql)                           
-//Executa a query e cria uma tabela temporária (TRB)
+//Executa a query e cria uma tabela temporÃ¡ria (TRB)
 dbUseArea(.T.,"TOPCONN",TCGenQry(,,cSql),"TRB",.F.,.T.)
 
 oReport:setMeter(TRB->(recCount()))
 
 TRB->(dbGoTop())
 
-//percorre a tabela temporária e 'seta' os valores nas respectivas colunas
+//percorre a tabela temporÃ¡ria e 'seta' os valores nas respectivas colunas
 while !TRB->(eof())
 	oSection:cell("A1_COD"):setValue(TRB->A1_COD)
 	oSection:cell("A1_NOME"):setValue(TRB->A1_NOME)
