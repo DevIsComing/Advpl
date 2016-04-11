@@ -14,8 +14,6 @@ ________________________________________________________________________________
 user function expExcel
 
 private oReport
-private aHeader := {}
-private aClientes := {}	
 
 //exibe um diálogo onde a execução de um processo pode ser monitorada através da régua de progressão.                               
 Processa({|| oReport := ReportDef(), oReport:PrintDialog()},"Imprmindo dados...")
