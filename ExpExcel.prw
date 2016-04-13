@@ -38,7 +38,7 @@ local oBreak
 
 //configura o relatório
 oReport := TReport():new("RELCLI","Lista de Clientes",,{|oReport| printReport(oReport)},"Lista de Clientes")
-oReport:SetLandscape() 	//tipo de impressão
+oReport:SetLandscape() 	//orientação da página como paisagem
 oReport:nFontBody := 10 //tamanho da fonte padrão
 oReport:setTotalInLine(.F.)
 oReport:showHeader()
