@@ -1,0 +1,34 @@
+#include "protheus.ch"
+#include "totvswebsrv.ch"
+#include "apwebsrv.ch"
+       
+WSSTRUCT Cliente
+	WSDATA Nome as String     
+	WSDATA Endereco as String
+	WSDATA Bairro as String
+	WSDATA Municipio as String
+	WSDATA Estado as String	
+ENDWSSTRUCT
+
+WSSERVICE WSBUSCLI
+	WSDATA Codigo as String
+	WSDATA DadosCliente as Cliente
+	
+	WSMETHOD GetCliente DESCRIPTION "Busca cliente por código"
+ENDWSSERVICE
+
+WSMETHOD GetCliente WSRECEIVE Codigo WSSEND DadosCliente WSSERVICE WSBUSCLI
+	
+	dbSelectArea("SA1")
+	SA1->(dbSetOrder(1))
+	SA1->(dbGoTop())    
+	while !SA1->(EOF()) .and. allTrim(SA1->A1_COD) = allTrim(Codigo)
+		::DadosCliente:Nome := allTrim(SA1->A1_NOME)
+        ::DadosCliente:Endereco := allTrim(SA1->A1_END)
+        ::DadosCliente:Bairro := allTrim(SA1->A1_BAIRRO)        
+        ::DadosCliente:Municipio := allTrim(SA1->A1_MUN)
+        ::DadosCliente:Estado := allTrim(SA1->A1_EST)
+        SA1->(dbSkip())
+	endDo              		
+	
+Return .T.
